@@ -19,10 +19,14 @@ class Client:
     def __repr__(self) -> str:
         return self.name
 
-    def change_name(self, new_name: str):
-        self.__name = new_name
-        # TODO save to DB
+    def change_name(self, new_name: str) -> str:
+        if available := True:
+            self.__name = new_name
+            # TODO save to DB
+            return f"Name changed to {self.name}"
+        return f"Name {new_name} alredy exists"
 
-    def change_address(self, new_address: str):
+    def change_address(self, new_address: str) -> str:
         self.__address = new_address
         # TODO save to DB
+        return f"Address changed to {self.address}"
